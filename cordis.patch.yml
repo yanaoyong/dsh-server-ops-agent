@@ -1,0 +1,12 @@
+- insert:
+    - id: server-operations
+      name: 'dsh-server-ops-agent'
+      config: {}
+    - id: preset-server-ops-chat
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: server-ops-chat
+        name: 运维 Agent
+        description: 使用主机采样进行只读排查
+        plugins:
+          - name: 'dsh-server-ops-agent/workspace-tool'

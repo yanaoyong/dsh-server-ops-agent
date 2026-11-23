@@ -1,0 +1,64 @@
+{
+  "name": "dsh-server-ops-agent",
+  "version": "0.3.0-beta.1",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./plugin.js",
+    "./client": "./client.js",
+    "./workspace-tool": "./workspace-tool.js"
+  },
+  "engines": {
+    "node": ">=22.13",
+    "dsh": "0.2.2-rc.5"
+  },
+  "scripts": {
+    "build:plugin": "node build-plugin.mjs",
+    "prepack": "npm run build:plugin",
+    "test": "npm run build:plugin && node --test"
+  },
+  "files": [
+    "client.js",
+    "connection-protocol.js",
+    "connections.js",
+    "cordis.patch.yml",
+    "generated/ssh-client.cjs",
+    "generated/ssh-licenses.txt",
+    "native-workspace.js",
+    "plugin.js",
+    "ssh-client.js",
+    "workspace-tool.js",
+    "DSH-Linux-首次连接.md",
+    "deployment.js",
+    "generated/linux-release.tgz",
+    "generated/linux-release.json"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "ssh2": "1.17.0"
+  },
+  "description": "Linux 巡检、日报和原生运维会话的 DeepSeek Harness 插件",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanaoyong/dsh-server-ops-agent.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "beta",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

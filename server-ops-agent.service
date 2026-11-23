@@ -1,0 +1,27 @@
+[Unit]
+Description=DSH Linux server operations
+After=local-fs.target
+
+[Service]
+Type=simple
+User=server-ops
+Group=server-ops-read
+SupplementaryGroups=systemd-journal
+EnvironmentFile=-/etc/server-ops-agent.conf
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=SERVER_OPS_STATE=/var/lib/server-ops-agent SERVER_OPS_RUNTIME=/run/server-ops-agent
+StateDirectory=server-ops-agent
+StateDirectoryMode=0700
+RuntimeDirectory=server-ops-agent
+RuntimeDirectoryMode=0750
+UMask=0077
+ExecStart=/usr/bin/flock --no-fork /var/lib/server-ops-agent/service.lock /opt/server-ops-agent/current/node /opt/server-ops-agent/current/linux-service.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
