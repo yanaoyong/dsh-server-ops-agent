@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DSH Drive Backup</title><link rel="stylesheet" href="style.css">
+<main><h1>DSH Drive Backup</h1>
+<p>DSH Drive Backup 是 DSH 服务器运维工作台的个人备份工具。它将服务器工作区的加密副本上传到管理员授权的 Google 云端硬盘，并定期从云端恢复样本以验证备份。</p>
+<h2>连接与恢复</h2><p>管理员在 DSH 工作台选择 Google Drive 后，通过 Google 账号页面批准访问。服务器在已授权账号中创建备份目录，上传加密分卷并记录恢复点。管理员可以在工作台查看备份状态和执行恢复。</p>
+<h2>Google Drive 权限</h2><p>应用使用 <code>drive.file</code> 权限访问通过此应用使用的文件。定时备份依靠保存在备份服务器上的离线授权运行。</p>
+<nav><a href="privacy.html">隐私政策</a> · <a href="https://github.com/yanaoyong/dsh-server-ops-agent">DSH 服务器运维项目</a></nav></main></html>
