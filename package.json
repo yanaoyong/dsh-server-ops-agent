@@ -15,7 +15,8 @@
   "scripts": {
     "build:plugin": "node build-plugin.mjs",
     "prepack": "npm run build:plugin",
-    "test": "npm run build:plugin && node --test"
+    "test": "npm run build:plugin && node --test test/*.test.mjs",
+    "test:operations": "npm --prefix operations run build:plugin && npm --prefix operations test"
   },
   "files": [
     "client.js",

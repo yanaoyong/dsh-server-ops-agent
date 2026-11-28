@@ -1,0 +1,12 @@
+[Unit]
+Description=Verify an encrypted DSH base workspace copy on Google Drive
+After=network-online.target
+RequiresMountsFor=/data/dsh-workspace-archives
+ConditionPathExists=/var/lib/dsh-workspace-private/google-drive.conf
+[Service]
+Type=oneshot
+UMask=0077
+Nice=15
+IOSchedulingClass=idle
+ExecStart=/usr/bin/python3 -I /var/lib/dsh-workspace-private/google_drive.py backup
+TimeoutStartSec=0

@@ -1,0 +1,7 @@
+[Unit]
+Description=Retry queued Baidu workspace uploads hourly
+[Timer]
+OnCalendar=*-*-* *:10:00
+Persistent=true
+[Install]
+WantedBy=timers.target

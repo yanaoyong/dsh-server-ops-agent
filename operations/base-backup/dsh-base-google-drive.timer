@@ -1,0 +1,7 @@
+[Unit]
+Description=Check for sealed DSH workspace backups every hour
+[Timer]
+OnCalendar=*-*-* *:15:00
+Persistent=true
+[Install]
+WantedBy=timers.target

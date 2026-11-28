@@ -1,0 +1,12 @@
+- insert:
+    - id: server-operations
+      name: '@local/server-ops-agent'
+      config: {}
+    - id: preset-server-ops-chat
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: server-ops-chat
+        name: 运维 Agent
+        description: 查询主机与备份状态、发起采集、跟进云端验证，经确认恢复文件
+        plugins:
+          - name: '@local/server-ops-agent/workspace-tool'

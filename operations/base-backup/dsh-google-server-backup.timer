@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily DSH Google Drive server recovery point
+
+[Timer]
+OnCalendar=*-*-* 20:30:00 UTC
+Persistent=true
+Unit=dsh-google-server-backup.service
+
+[Install]
+WantedBy=timers.target

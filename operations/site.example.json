@@ -1,0 +1,7 @@
+{
+  "host_id": "example-host",
+  "ssh_alias": "example-ops-ssh",
+  "workspace_parent": "example-workspace",
+  "archive_directory": "dsh-workspace-archives",
+  "private_directory": "dsh-workspace-private"
+}

@@ -1,0 +1,10 @@
+[Unit]
+Description=Prepare the latest DSH workspace file browser
+RequiresMountsFor=/data/dsh-workspace-archives
+[Service]
+Type=oneshot
+UMask=0077
+Nice=15
+IOSchedulingClass=idle
+ExecStart=/usr/bin/python3 -I /var/lib/dsh-workspace-private/workspace_history.py warm
+TimeoutStartSec=45min

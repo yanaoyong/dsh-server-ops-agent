@@ -1,0 +1,20 @@
+[Unit]
+Description=DSH complete server filesystem backup to Google Drive
+After=network-online.target docker.service srv-appnode.mount
+Wants=network-online.target
+RequiresMountsFor=/data /srv/appnode /boot/efi
+
+[Service]
+Type=oneshot
+PrivateMounts=yes
+RuntimeDirectory=dsh-google-server-view
+RuntimeDirectoryMode=0700
+UMask=0077
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+ExecStart=/bin/bash /usr/local/libexec/dsh-google-server-backup.sh
+ExecStartPost=/bin/bash /usr/local/libexec/dsh-google-server-receipt.sh
+Restart=on-failure
+RestartSec=15min
+TimeoutStartSec=infinity

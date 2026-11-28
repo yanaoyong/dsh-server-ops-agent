@@ -17,6 +17,10 @@ DeepSeek Harness 的 Linux 运维插件。通过已有 SSH 连接读取服务器
 
 在 DSH 启用「自定义插件索引」，把公开索引添加到「发现」，即可查看并安装指定版本。 [DSH 服务器运维索引](https://raw.githubusercontent.com/yanaoyong/dsh-server-ops-agent/main/index.json)
 
+## 开发 NightWarden、备份与恢复
+
+克隆本仓库即可取得扩展工作台、Linux 备份任务、恢复工具及测试。进入 [operations 开发说明](operations/README.md) 查看代码入口、服务器开发命令和独立部署配置。
+
 ## 从源码构建
 
 构建机需要 Node.js 22.13 或更新版本及 Python 3。检出目标版本标签后运行：

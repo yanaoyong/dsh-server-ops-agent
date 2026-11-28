@@ -1,0 +1,12 @@
+[Unit]
+Description=Seal a manual encrypted base workspace version
+After=network-online.target docker.service
+RequiresMountsFor=/data/example-workspace/workspace /data/dsh-workspace-archives
+[Service]
+Type=oneshot
+UMask=0077
+Nice=15
+IOSchedulingClass=idle
+ExecStart=/usr/bin/python3 -I /var/lib/dsh-workspace-private/workspace.py capture-now
+ExecStartPost=/usr/bin/systemctl start --no-block dsh-base-baidu-upload.service dsh-base-google-drive.service dsh-base-history-index.service
+TimeoutStartSec=0

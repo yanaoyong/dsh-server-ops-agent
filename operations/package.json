@@ -1,0 +1,51 @@
+{
+  "name": "@local/server-ops-agent",
+  "version": "0.3.0-alpha.2",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./plugin.js",
+    "./client": "./client.js",
+    "./workspace-tool": "./workspace-tool.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "build:plugin": "node build-plugin.mjs",
+    "prepack": "npm run build:plugin",
+    "test": "node run-tests.mjs"
+  },
+  "files": [
+    "client.js",
+    "conversation-backup.js",
+    "conversation-recovery.js",
+    "connection-protocol.js",
+    "connections.js",
+    "cordis.patch.yml",
+    "generated/ssh-client.cjs",
+    "generated/ssh-licenses.txt",
+    "native-workspace.js",
+    "plugin.js",
+    "ssh-client.js",
+    "workspace-tool.js"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "ssh2": "1.17.0"
+  }
+}
